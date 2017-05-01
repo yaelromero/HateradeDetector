@@ -37,7 +37,7 @@ def main():
     # Open the file
 
     try:
-        file = open('data/comments_sample.txt', 'r')
+        file = open('data/comments_sample.txt', encoding = "ISO-8859-1")
     except(IndexError, IOError):
         print("Invalid path for train txt file")
 
