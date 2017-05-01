@@ -16,6 +16,8 @@ def preprocess(comment):
     comment = re.sub('``', '"', comment)
     # Convert ` to '
     comment = re.sub('`', '\'', comment)
+    # Remove =
+    comment = re.sub('=', '', comment)
     # Remove \n
     comment = re.sub('\n', '', comment)
     # Remove :
