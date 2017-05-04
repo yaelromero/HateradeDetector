@@ -38,7 +38,7 @@ def get_SVM_feature_vector(comments, feature_list):
 
 def get_SVM_feature_vector_and_labels(comments, feature_list):
     sorted_features = sorted(feature_list)
-    map = {}
+    word_map = {}
     feature_vector = []
     labels = []
     for i in comments:
@@ -144,6 +144,7 @@ def main():
     for word in stop_list:
         word = word.strip()
         stop_words.append(word)
+    stop_words.append(URL)
 
     comments = []
     feature_list = []
