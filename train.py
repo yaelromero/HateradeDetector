@@ -24,6 +24,10 @@ def format_output(test_raw, attack_ratings, p_labels, p_vals, total, correct, in
         output_file.write(t + "\t" + str(a) + "\t" + str(int(p)) + "\t" + str(e) + "\n")
 
 def get_SVM_feature_vector(comments, feature_list):
+
+	# Create an array of 1s and 0s for each test comment to indicate the presence or absence of a feature word
+	# Feature words are extracted from the training data
+	
     sorted_features = sorted(feature_list)
     word_map = {}
     feature_vector = []
