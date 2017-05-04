@@ -144,7 +144,6 @@ def main():
     for word in stop_list:
         word = word.strip()
         stop_words.append(word)
-    stop_words.append(URL)
 
     comments = []
     feature_list = []
