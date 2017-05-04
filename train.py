@@ -2,9 +2,12 @@ import sys
 import re
 import svm
 from svmutil import *
-import re, pickle, csv, os
+import re
 
 def format_output(test_raw, attack_ratings, p_labels, p_vals, total, correct, incorrect, accuracy):
+
+    # Write the accuracy, total number of samples, # of correct and incorrect samples
+    # Write out the comments with their actual and predicted labels, along with probability estimates
 
     output_file = open("output.txt", 'w')
     output_file.write('Total = %d \n' % \
@@ -37,6 +40,10 @@ def get_SVM_feature_vector(comments, feature_list):
     return feature_vector
 
 def get_SVM_feature_vector_and_labels(comments, feature_list):
+
+    # Create a map that is used as a parameter for the SVM
+    # The map contains a pattern of 1s and 0s for each comment to indicate the presence or absence of a feature word
+
     sorted_features = sorted(feature_list)
     word_map = {}
     feature_vector = []
@@ -71,6 +78,7 @@ def get_SVM_feature_vector_and_labels(comments, feature_list):
 def get_feature_vector(comment, stop_words):
 
     # Method that returns a list of words, or features, from the comment inputted
+    
     feature_vector = []
     words = comment.split()
     for word in words:
